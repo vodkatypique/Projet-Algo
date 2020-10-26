@@ -1,0 +1,596 @@
+\hypertarget{compileBST_8c}{\section{src/compile\-B\-S\-T.c File Reference}
+\label{compileBST_8c}\index{src/compile\-B\-S\-T.\-c@{src/compile\-B\-S\-T.\-c}}
+}
+
+
+This implements the apply\-Patch program.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$limits.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structOBST}{O\-B\-S\-T}
+\begin{DoxyCompactList}\small\item\em Objet Arbre Binaire Optimal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{compileBST_8c_a005ec01e7223dd664cc5f254ac3fc6b8}{L\-O\-N\-G\-U\-E\-U\-R\-B\-R\-A\-C\-K\-E\-T}~50
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structOBST}{O\-B\-S\-T} \hyperlink{compileBST_8c_a37affc99e63e01fe4aa3e90c0a8e320a}{O\-B\-S\-T}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{compileBST_8c_ae2bde9744936b36700d427207e04cf32}{calculer\-Matrices} ()
+\begin{DoxyCompactList}\small\item\em Fonction de calcule des matrices utiles \-: cout, racine et poids. \end{DoxyCompactList}\item 
+\hyperlink{structOBST}{O\-B\-S\-T} $\ast$ \hyperlink{compileBST_8c_a6c658ba922305a99482c903995a4a45d}{construire\-Arbre} (int i, int j)
+\begin{DoxyCompactList}\small\item\em Fonction de construction de l'arbre contenant les feuilles d'indices i a j. \end{DoxyCompactList}\item 
+void \hyperlink{compileBST_8c_a37660000f8b92d58135bd5a167cae022}{remplir\-Sortie} (\hyperlink{structOBST}{O\-B\-S\-T} $\ast$\hyperlink{compileBST_8c_a424b47858f019cfe95909586e0af3365}{R\-O\-O\-T}, int nivel, int elt, char $\ast$$\ast$sortie)
+\begin{DoxyCompactList}\small\item\em Fonction de qui rempli un tampon utiliser pour stocker la futur sortie ecran. \end{DoxyCompactList}\item 
+void \hyperlink{compileBST_8c_adf44e389b923f52e7e8369b20bd295ed}{afficher\-Sortie} (char $\ast$$\ast$sortie)
+\begin{DoxyCompactList}\small\item\em Fonction de qui affiche le tampon a l'ecran. \end{DoxyCompactList}\item 
+void \hyperlink{compileBST_8c_ab06a8a248fb8de0b78026f4163e569ae}{calcul\-Et\-Construction\-Arbre} ()
+\begin{DoxyCompactList}\small\item\em Fonction de qui calcul les matrices puis constructi l'arbre binaire optimal contenant tout les elements. \end{DoxyCompactList}\item 
+int \hyperlink{compileBST_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+float $\ast$$\ast$ \hyperlink{compileBST_8c_a47afed83ea6c1239931ea8eaa0e8c929}{C}
+\item 
+float $\ast$ \hyperlink{compileBST_8c_aa1df67933739b06ebe8f1041ed8b43a6}{W}
+\begin{DoxyCompactList}\small\item\em cost matrix \end{DoxyCompactList}\item 
+int $\ast$$\ast$ \hyperlink{compileBST_8c_af40c7c16aeceb500e7425dfc6c6147cf}{R}
+\begin{DoxyCompactList}\small\item\em weight matrix \end{DoxyCompactList}\item 
+float $\ast$ \hyperlink{compileBST_8c_a7fe964f6b1afd4591f637999272ab9a2}{p}
+\begin{DoxyCompactList}\small\item\em root matrix \end{DoxyCompactList}\item 
+long \hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{N\-U\-M\-B\-E\-R\-\_\-\-O\-F\-\_\-\-K\-E\-Y\-S}
+\begin{DoxyCompactList}\small\item\em frequencies \end{DoxyCompactList}\item 
+int $\ast$ \hyperlink{compileBST_8c_aad6fd34d5b69f600454f875343ac3ca7}{K\-E\-Y\-S}
+\begin{DoxyCompactList}\small\item\em number of keys in the tree \end{DoxyCompactList}\item 
+\hyperlink{structOBST}{O\-B\-S\-T} $\ast$ \hyperlink{compileBST_8c_a424b47858f019cfe95909586e0af3365}{R\-O\-O\-T}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This implements the apply\-Patch program. \begin{DoxyAuthor}{Author}
+Lucie Pansart 
+
+Jean-\/\-Louis Roch 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+30/9/2016 
+\end{DoxyDate}
+\begin{DoxyWarning}{Warning}
+Usage\-: compile\-B\-S\-T n original\-File 
+\end{DoxyWarning}
+\begin{DoxyCopyright}{Copyright}
+G\-N\-U Public License. 
+\end{DoxyCopyright}
+
+
+Definition in file \hyperlink{compileBST_8c_source}{compile\-B\-S\-T.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{compileBST_8c_a005ec01e7223dd664cc5f254ac3fc6b8}{\index{compile\-B\-S\-T.\-c@{compile\-B\-S\-T.\-c}!L\-O\-N\-G\-U\-E\-U\-R\-B\-R\-A\-C\-K\-E\-T@{L\-O\-N\-G\-U\-E\-U\-R\-B\-R\-A\-C\-K\-E\-T}}
+\index{L\-O\-N\-G\-U\-E\-U\-R\-B\-R\-A\-C\-K\-E\-T@{L\-O\-N\-G\-U\-E\-U\-R\-B\-R\-A\-C\-K\-E\-T}!compileBST.c@{compile\-B\-S\-T.\-c}}
+\subsubsection[{L\-O\-N\-G\-U\-E\-U\-R\-B\-R\-A\-C\-K\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-N\-G\-U\-E\-U\-R\-B\-R\-A\-C\-K\-E\-T~50}}\label{compileBST_8c_a005ec01e7223dd664cc5f254ac3fc6b8}
+
+
+Definition at line 22 of file compile\-B\-S\-T.\-c.
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{compileBST_8c_a37affc99e63e01fe4aa3e90c0a8e320a}{\index{compile\-B\-S\-T.\-c@{compile\-B\-S\-T.\-c}!O\-B\-S\-T@{O\-B\-S\-T}}
+\index{O\-B\-S\-T@{O\-B\-S\-T}!compileBST.c@{compile\-B\-S\-T.\-c}}
+\subsubsection[{O\-B\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf O\-B\-S\-T}
+ {\bf O\-B\-S\-T}}}\label{compileBST_8c_a37affc99e63e01fe4aa3e90c0a8e320a}
+
+
+\subsection{Function Documentation}
+\hypertarget{compileBST_8c_adf44e389b923f52e7e8369b20bd295ed}{\index{compile\-B\-S\-T.\-c@{compile\-B\-S\-T.\-c}!afficher\-Sortie@{afficher\-Sortie}}
+\index{afficher\-Sortie@{afficher\-Sortie}!compileBST.c@{compile\-B\-S\-T.\-c}}
+\subsubsection[{afficher\-Sortie}]{\setlength{\rightskip}{0pt plus 5cm}void afficher\-Sortie (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{sortie}
+\end{DoxyParamCaption}
+)}}\label{compileBST_8c_adf44e389b923f52e7e8369b20bd295ed}
+
+
+Fonction de qui affiche le tampon a l'ecran. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sortie} & tampon contenant les sortie dans le bon ordre d'affichage \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 167 of file compile\-B\-S\-T.\-c.
+
+
+\begin{DoxyCode}
+167                                     \{
+168   \textcolor{comment}{//FILE * fp;}
+169   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS} - 1; i++) \{
+170     \textcolor{comment}{//fp = fopen("test.txt", "a");}
+171     fprintf(stdout, \textcolor{stringliteral}{"%s,\(\backslash\)n"}, sortie[i]);
+172     \textcolor{comment}{//fclose(fp);}
+173   \}
+174   \textcolor{comment}{//p = fopen("test.txt", "a");}
+175   fprintf(stdout, \textcolor{stringliteral}{"%s \};\(\backslash\)n"}, sortie[NUMBER\_OF\_KEYS - 1]);
+176   \textcolor{comment}{//fclose(fp);}
+177 
+178 \}
+\end{DoxyCode}
+\hypertarget{compileBST_8c_ae2bde9744936b36700d427207e04cf32}{\index{compile\-B\-S\-T.\-c@{compile\-B\-S\-T.\-c}!calculer\-Matrices@{calculer\-Matrices}}
+\index{calculer\-Matrices@{calculer\-Matrices}!compileBST.c@{compile\-B\-S\-T.\-c}}
+\subsubsection[{calculer\-Matrices}]{\setlength{\rightskip}{0pt plus 5cm}void calculer\-Matrices (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{compileBST_8c_ae2bde9744936b36700d427207e04cf32}
+
+
+Fonction de calcule des matrices utiles \-: cout, racine et poids. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+Construct weight matrix W
+
+Construct cost matrix C and root matrix R 
+
+Definition at line 53 of file compile\-B\-S\-T.\-c.
+
+
+\begin{DoxyCode}
+53                         \{
+54   \textcolor{keywordtype}{float} x, min;
+55   \textcolor{keywordtype}{int} i, j, k, h, m;
+57     \hyperlink{compileBST_8c_aa1df67933739b06ebe8f1041ed8b43a6}{W}[0] = 0;
+58     \textcolor{keywordflow}{for} (i = 1; i <= \hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}; i++)
+59       \hyperlink{compileBST_8c_aa1df67933739b06ebe8f1041ed8b43a6}{W}[i] = \hyperlink{compileBST_8c_aa1df67933739b06ebe8f1041ed8b43a6}{W}[i - 1] + \hyperlink{compileBST_8c_a7fe964f6b1afd4591f637999272ab9a2}{p}[i];
+61   \textcolor{keywordflow}{for} (i = 0; i <= \hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}; i++)
+62     \hyperlink{compileBST_8c_a47afed83ea6c1239931ea8eaa0e8c929}{C}[i][i] = 0;
+63   \textcolor{keywordflow}{for} (i = 0; i <= \hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS} - 1; i++) \{
+64     j = i + 1;
+65     \hyperlink{compileBST_8c_a47afed83ea6c1239931ea8eaa0e8c929}{C}[i][j] = \hyperlink{compileBST_8c_aa1df67933739b06ebe8f1041ed8b43a6}{W}[j]-\hyperlink{compileBST_8c_aa1df67933739b06ebe8f1041ed8b43a6}{W}[i];
+66     \hyperlink{compileBST_8c_af40c7c16aeceb500e7425dfc6c6147cf}{R}[i][j] = j;
+67   \}
+68   \textcolor{keywordflow}{for} (h = 2; h <= \hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}; h++)
+69     \textcolor{keywordflow}{for} (i = 0; i <= \hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS} - h; i++) \{
+70       j = i + h;
+71       m = \hyperlink{compileBST_8c_af40c7c16aeceb500e7425dfc6c6147cf}{R}[i][j - 1];
+72       min = \hyperlink{compileBST_8c_a47afed83ea6c1239931ea8eaa0e8c929}{C}[i][m - 1] + \hyperlink{compileBST_8c_a47afed83ea6c1239931ea8eaa0e8c929}{C}[m][j];
+73       \textcolor{keywordflow}{for} (k = m + 1; k <= \hyperlink{compileBST_8c_af40c7c16aeceb500e7425dfc6c6147cf}{R}[i + 1][j]; k++) \{
+74         x = C[i][k - 1] + C[k][j];
+75         \textcolor{keywordflow}{if} (x < min) \{
+76           m = k;
+77           min = x;
+78         \}
+79       \}
+80       C[i][j] = \hyperlink{compileBST_8c_aa1df67933739b06ebe8f1041ed8b43a6}{W}[j]-\hyperlink{compileBST_8c_aa1df67933739b06ebe8f1041ed8b43a6}{W}[i] + min;
+81       \hyperlink{compileBST_8c_af40c7c16aeceb500e7425dfc6c6147cf}{R}[i][j] = m;
+82     \}
+83 \}
+\end{DoxyCode}
+\hypertarget{compileBST_8c_ab06a8a248fb8de0b78026f4163e569ae}{\index{compile\-B\-S\-T.\-c@{compile\-B\-S\-T.\-c}!calcul\-Et\-Construction\-Arbre@{calcul\-Et\-Construction\-Arbre}}
+\index{calcul\-Et\-Construction\-Arbre@{calcul\-Et\-Construction\-Arbre}!compileBST.c@{compile\-B\-S\-T.\-c}}
+\subsubsection[{calcul\-Et\-Construction\-Arbre}]{\setlength{\rightskip}{0pt plus 5cm}void calcul\-Et\-Construction\-Arbre (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{compileBST_8c_ab06a8a248fb8de0b78026f4163e569ae}
+
+
+Fonction de qui calcul les matrices puis constructi l'arbre binaire optimal contenant tout les elements. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 185 of file compile\-B\-S\-T.\-c.
+
+
+\begin{DoxyCode}
+185                                  \{
+186   \hyperlink{compileBST_8c_ae2bde9744936b36700d427207e04cf32}{calculerMatrices}();
+187   \hyperlink{compileBST_8c_a424b47858f019cfe95909586e0af3365}{ROOT} = \hyperlink{compileBST_8c_a6c658ba922305a99482c903995a4a45d}{construireArbre}(0, \hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS});
+188 \}
+\end{DoxyCode}
+\hypertarget{compileBST_8c_a6c658ba922305a99482c903995a4a45d}{\index{compile\-B\-S\-T.\-c@{compile\-B\-S\-T.\-c}!construire\-Arbre@{construire\-Arbre}}
+\index{construire\-Arbre@{construire\-Arbre}!compileBST.c@{compile\-B\-S\-T.\-c}}
+\subsubsection[{construire\-Arbre}]{\setlength{\rightskip}{0pt plus 5cm}{\bf O\-B\-S\-T} $\ast$ construire\-Arbre (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{j}
+\end{DoxyParamCaption}
+)}}\label{compileBST_8c_a6c658ba922305a99482c903995a4a45d}
+
+
+Fonction de construction de l'arbre contenant les feuilles d'indices i a j. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & borne inferieure \\
+\hline
+{\em j} & borne superieure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Racine de l'arbre binaire optimal contenant les feuilles d'indice i a j 
+\end{DoxyReturn}
+
+
+Definition at line 93 of file compile\-B\-S\-T.\-c.
+
+
+\begin{DoxyCode}
+93                                      \{
+94   \textcolor{comment}{//printf("tota");}
+95   \hyperlink{structOBST}{OBST} * \hyperlink{compileBST_8c_a7fe964f6b1afd4591f637999272ab9a2}{p};
+96   \textcolor{keywordflow}{if} (i == j) \{
+97     p = NULL;
+98   \} \textcolor{keywordflow}{else} \{
+99     p = malloc(\textcolor{keyword}{sizeof}(\hyperlink{structOBST}{OBST}));
+100     
+101     \textcolor{comment}{//printf("toto");}
+102     p -> \hyperlink{structOBST_a4c9146e94ac8e02c18ceccfb6c6ebddc}{KEY} = \hyperlink{compileBST_8c_aad6fd34d5b69f600454f875343ac3ca7}{KEYS}[\hyperlink{compileBST_8c_af40c7c16aeceb500e7425dfc6c6147cf}{R}[i][j]];
+103     \textcolor{comment}{//printf("totI");}
+104     p -> \hyperlink{structOBST_a2ca8350fa33eecdc29b6f2cf1eb83686}{left} = \hyperlink{compileBST_8c_a6c658ba922305a99482c903995a4a45d}{construireArbre}(i, R[i][j] - 1); \textcolor{comment}{//sous arbre gauche}
+105     \textcolor{comment}{//printf("totW");}
+106     p -> \hyperlink{structOBST_ab6d8d6c428df9839238a1f666fde3a20}{right} = \hyperlink{compileBST_8c_a6c658ba922305a99482c903995a4a45d}{construireArbre}(R[i][j], j); \textcolor{comment}{//sous arbre droit}
+107     \textcolor{comment}{//printf("%d", p->KEY);}
+108   \}
+109   \textcolor{keywordflow}{return} \hyperlink{compileBST_8c_a7fe964f6b1afd4591f637999272ab9a2}{p};
+110 \}
+\end{DoxyCode}
+\hypertarget{compileBST_8c_a0ddf1224851353fc92bfbff6f499fa97}{\index{compile\-B\-S\-T.\-c@{compile\-B\-S\-T.\-c}!main@{main}}
+\index{main@{main}!compileBST.c@{compile\-B\-S\-T.\-c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{compileBST_8c_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+Main function. 
+
+Main function 
+\begin{DoxyParams}{Parameters}
+{\em argc} & A count of the number of command-\/line arguments \\
+\hline
+{\em argv} & An argument vector of the command-\/line arguments. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+Must be called with a positive long integer, n, and a filename, freq\-File, as commandline parameters and in the given order. 
+\end{DoxyWarning}
+\begin{DoxyReturn}{Returns}
+\{ 0 if succeeds and prints C code implementing an optimal A\-B\-R on stdout; exit code otherwise\} 
+\end{DoxyReturn}
+
+
+Definition at line 198 of file compile\-B\-S\-T.\-c.
+
+
+\begin{DoxyCode}
+198                                   \{
+199   \textcolor{keywordtype}{long} n = 0 ; \textcolor{comment}{// Number of elements in the dictionary}
+200   FILE *fs = NULL ; \textcolor{comment}{// File that contains n positive integers defining the relative frequence of dictinary
+       elements }
+201   
+202   \textcolor{keywordtype}{int} i;\textcolor{comment}{//, k;}
+203 
+204 
+205   \textcolor{keywordflow}{if}(argc != 3)\{
+206     fprintf(stderr, \textcolor{stringliteral}{"!!!!! Usage: ./compileBST n  originalFile !!!!!\(\backslash\)n"});
+207       exit(EXIT\_FAILURE); \textcolor{comment}{/* indicate failure.*/}
+208   \}
+209 
+210   \{ \textcolor{comment}{// Conversion of parameter n in a long }
+211     \textcolor{keywordtype}{int} codeRetour = EXIT\_SUCCESS;
+212     \textcolor{keywordtype}{char} *posError;
+213     \textcolor{keywordtype}{long} resuLong;
+214     n = atol(argv[1] ) ;
+215    
+216     assert(argc >= 2);
+217     \textcolor{comment}{// Conversion of argv[1] en long}
+218     resuLong = strtol(argv[1], &posError, 10);
+219     \textcolor{comment}{// Traitement des erreurs}
+220     \textcolor{keywordflow}{switch} (errno)
+221     \{
+222       \textcolor{keywordflow}{case} EXIT\_SUCCESS :
+223          \textcolor{comment}{// Conversion du long en int}
+224          \textcolor{keywordflow}{if} (resuLong > 0)
+225          \{
+226             n = (long)resuLong;
+227             fprintf(stderr, \textcolor{stringliteral}{"Number of elements in the dictionary: %ld\(\backslash\)n"}, n);         
+228          \}
+229          \textcolor{keywordflow}{else}
+230          \{
+231             (void)fprintf(stderr, \textcolor{stringliteral}{"%s cannot be converted into a positive integer matching the number of
+       elements in the dicionary.\(\backslash\)n"}, argv[1]) ; 
+232             codeRetour = EXIT\_FAILURE;
+233          \}
+234       \textcolor{keywordflow}{break};
+235       
+236       \textcolor{keywordflow}{case} EINVAL :
+237          perror(\_\_func\_\_);
+238          (void)fprintf(stderr, \textcolor{stringliteral}{"%s does not match a long integer value. \(\backslash\)n"}, argv[1]);
+239          codeRetour = EXIT\_FAILURE;
+240       \textcolor{keywordflow}{break};
+241       
+242       \textcolor{keywordflow}{case} ERANGE :
+243          perror(\_\_func\_\_);
+244          (void)fprintf(stderr, \textcolor{stringliteral}{"%s does not fit in a long int :\(\backslash\)n"} \textcolor{stringliteral}{"out of bound [%ld;%ld]\(\backslash\)n"},
+245                        argv[1], LONG\_MIN, LONG\_MAX);
+246          codeRetour = EXIT\_FAILURE;
+247       \textcolor{keywordflow}{break};
+248       \textcolor{keywordflow}{default} :
+249          perror(\_\_func\_\_);
+250          codeRetour = EXIT\_FAILURE;
+251     \} \textcolor{comment}{// switch (errno)}
+252     \textcolor{keywordflow}{if}  (codeRetour != EXIT\_SUCCESS) \textcolor{keywordflow}{return} codeRetour ;
+253   \}
+254 
+255   fs = fopen(argv[2] , \textcolor{stringliteral}{"r"} );
+256   \textcolor{keywordflow}{if} (fs==NULL) \{fprintf (stderr, \textcolor{stringliteral}{"!!!!! Error opening originalFile !!!!!\(\backslash\)n"}); exit(EXIT\_FAILURE);\}
+257 
+258   \textcolor{comment}{// TO BE COMPLETED }
+259    \hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS} = n;
+260 
+261    \hyperlink{compileBST_8c_a47afed83ea6c1239931ea8eaa0e8c929}{C} = (\textcolor{keywordtype}{float}**)malloc((\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1)* \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}*)); \textcolor{comment}{//cost matrix   //faire malloc}
+262    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < (\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1); i++)
+263    \{
+264      \hyperlink{compileBST_8c_a47afed83ea6c1239931ea8eaa0e8c929}{C}[i] = (\textcolor{keywordtype}{float}*)malloc((\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1)* \textcolor{keyword}{sizeof}(float));
+265    \}
+266    
+267   \hyperlink{compileBST_8c_aa1df67933739b06ebe8f1041ed8b43a6}{W} = (\textcolor{keywordtype}{float}*)malloc((\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1)* \textcolor{keyword}{sizeof}(float)); \textcolor{comment}{//weight matrix}
+268 
+269 
+270   \hyperlink{compileBST_8c_af40c7c16aeceb500e7425dfc6c6147cf}{R} = (\textcolor{keywordtype}{int}**)malloc((\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1)* \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}*)); \textcolor{comment}{//root matrix}
+271    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < (\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1); i++)
+272    \{
+273      \hyperlink{compileBST_8c_af40c7c16aeceb500e7425dfc6c6147cf}{R}[i] = (\textcolor{keywordtype}{int}*)malloc((\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1)* \textcolor{keyword}{sizeof}(int));
+274    \}
+275 
+276   \hyperlink{compileBST_8c_a7fe964f6b1afd4591f637999272ab9a2}{p} = (\textcolor{keywordtype}{float}*)malloc((\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1)* \textcolor{keyword}{sizeof}(float)); \textcolor{comment}{//frequencies}
+277 
+278   \hyperlink{compileBST_8c_aad6fd34d5b69f600454f875343ac3ca7}{KEYS} = (\textcolor{keywordtype}{int}*)malloc((\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1)* \textcolor{keyword}{sizeof}(int));
+279 
+280   \textcolor{keywordtype}{int} espace = 1;
+281   \textcolor{keywordtype}{char} ch, buffer[32];
+282   \textcolor{keywordtype}{int} x = 0, y = 1;
+283 
+284 
+285  
+286   \textcolor{keywordflow}{while} (1) \{
+287     ch = fgetc(fs);
+288     \textcolor{comment}{//printf("titi");}
+289 
+290 
+291     \textcolor{keywordflow}{if} (ch == EOF) \{
+292       \textcolor{comment}{//printf("totO");}
+293       \hyperlink{compileBST_8c_aad6fd34d5b69f600454f875343ac3ca7}{KEYS}[y] = atoi(buffer);
+294       \textcolor{comment}{//printf("%d", KEYS[y]);}
+295       \textcolor{keywordflow}{break};
+296     \}
+297 
+298     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (ch == \textcolor{charliteral}{' '}) \{
+299       \textcolor{comment}{//printf("tATA");}
+300 
+301       \textcolor{keywordflow}{if} (espace == 0) \{
+302         espace = 1; \textcolor{comment}{//empecher les espaces multiples cause de bug}
+303 
+304         \hyperlink{compileBST_8c_aad6fd34d5b69f600454f875343ac3ca7}{KEYS}[y] = atoi(buffer);
+305         \textcolor{comment}{//printf("%d", KEYS[y]);}
+306         y++;
+307         memset(buffer, 0, 32);
+308         x = 0;
+309         \textcolor{keywordflow}{continue};
+310       \}
+311 
+312     \} \textcolor{keywordflow}{else} \{
+313       espace = 0;
+314       buffer[x] = ch;
+315       x++;
+316     \}
+317   \}
+318 
+319   \textcolor{keywordtype}{char} ** sortie = malloc(\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS} * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char} * ));
+320   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}; i++) \{
+321     sortie[i] = malloc(\hyperlink{compileBST_8c_a005ec01e7223dd664cc5f254ac3fc6b8}{LONGUEURBRACKET} * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));
+322     \}
+323 
+324   \textcolor{keywordtype}{int} somme = 0;
+325   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i <= \hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}; i++) \{
+326     somme += \hyperlink{compileBST_8c_aad6fd34d5b69f600454f875343ac3ca7}{KEYS}[i];
+327   \}
+328 
+329   \textcolor{keywordflow}{for}(i = 1; i <= \hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}; i++)
+330    \{
+331     \hyperlink{compileBST_8c_a7fe964f6b1afd4591f637999272ab9a2}{p}[i] = (float)\hyperlink{compileBST_8c_aad6fd34d5b69f600454f875343ac3ca7}{KEYS}[i]/somme;
+332     \hyperlink{compileBST_8c_aad6fd34d5b69f600454f875343ac3ca7}{KEYS}[i] = i-1;
+333    \}
+334 
+335 
+336   \hyperlink{compileBST_8c_ab06a8a248fb8de0b78026f4163e569ae}{calculEtConstructionArbre}();
+337   \hyperlink{compileBST_8c_a37660000f8b92d58135bd5a167cae022}{remplirSortie}(\hyperlink{compileBST_8c_a424b47858f019cfe95909586e0af3365}{ROOT}, 0, NUMBER\_OF\_KEYS, sortie);
+338   \hyperlink{compileBST_8c_adf44e389b923f52e7e8369b20bd295ed}{afficherSortie}(sortie);
+339 
+340 
+341   fclose(fs);
+342 
+343 
+344   \textcolor{keywordflow}{return} 0;
+345 \}
+\end{DoxyCode}
+\hypertarget{compileBST_8c_a37660000f8b92d58135bd5a167cae022}{\index{compile\-B\-S\-T.\-c@{compile\-B\-S\-T.\-c}!remplir\-Sortie@{remplir\-Sortie}}
+\index{remplir\-Sortie@{remplir\-Sortie}!compileBST.c@{compile\-B\-S\-T.\-c}}
+\subsubsection[{remplir\-Sortie}]{\setlength{\rightskip}{0pt plus 5cm}void remplir\-Sortie (
+\begin{DoxyParamCaption}
+\item[{{\bf O\-B\-S\-T} $\ast$}]{R\-O\-O\-T, }
+\item[{int}]{nivel, }
+\item[{int}]{elt, }
+\item[{char $\ast$$\ast$}]{sortie}
+\end{DoxyParamCaption}
+)}}\label{compileBST_8c_a37660000f8b92d58135bd5a167cae022}
+
+
+Fonction de qui rempli un tampon utiliser pour stocker la futur sortie ecran. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em R\-O\-O\-T} & racine de l'arbre binaire optimal traité \\
+\hline
+{\em nivel} & niveau (\char`\"{}etage\char`\"{}) actuel dans le traitement de l'arbre binaire \\
+\hline
+{\em elt} & nombre d'element dans l'arbre complet \\
+\hline
+{\em sortie} & tampon de sortie \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 121 of file compile\-B\-S\-T.\-c.
+
+
+\begin{DoxyCode}
+121                                                                     \{
+122   \textcolor{comment}{//int i;}
+123   \textcolor{comment}{//FILE * fp;}
+124   \textcolor{comment}{//printf("toto");}
+125   
+126   \textcolor{keywordflow}{if} (nivel == 0) \{
+127     \textcolor{comment}{//fp = fopen("test.txt", "w+");}
+128     fprintf(stdout, \textcolor{stringliteral}{"static int BSTroot = %d;\(\backslash\)nstatic int BSTtree[%d][2] = \{\(\backslash\)n"}, ROOT -> 
+      \hyperlink{structOBST_a4c9146e94ac8e02c18ceccfb6c6ebddc}{KEY}, elt);
+129     \textcolor{comment}{//fclose(fp);}
+130   \}
+131   
+132   \textcolor{comment}{//printf("titi");}
+133   \textcolor{keywordflow}{if} (ROOT != 0) \{
+134     \textcolor{keywordtype}{char} * valeur = (\textcolor{keywordtype}{char} * ) malloc(\hyperlink{compileBST_8c_a005ec01e7223dd664cc5f254ac3fc6b8}{LONGUEURBRACKET} * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));
+135     \textcolor{comment}{//valeur[0] = '\(\backslash\)0';}
+136     
+137     \textcolor{keywordflow}{if} (ROOT -> \hyperlink{structOBST_a2ca8350fa33eecdc29b6f2cf1eb83686}{left} != NULL) \{
+138       \textcolor{comment}{//fprintf(fp, "\{%d, ", ROOT->left->KEY);}
+139       sprintf(valeur + strlen(valeur), \textcolor{stringliteral}{"\{%d, "}, ROOT -> \hyperlink{structOBST_a2ca8350fa33eecdc29b6f2cf1eb83686}{left} -> \hyperlink{structOBST_a4c9146e94ac8e02c18ceccfb6c6ebddc}{KEY});
+140     \} \textcolor{keywordflow}{else} \{
+141       \textcolor{comment}{//fprintf(fp, "\{-1, ");}
+142       sprintf(valeur + strlen(valeur), \textcolor{stringliteral}{"\{-1, "});
+143     \}
+144     \textcolor{keywordflow}{if} (ROOT -> \hyperlink{structOBST_ab6d8d6c428df9839238a1f666fde3a20}{right} != NULL) \{
+145       \textcolor{comment}{//fprintf(fp, "%d\}\(\backslash\)n", ROOT->right->KEY);}
+146       sprintf(valeur + strlen(valeur), \textcolor{stringliteral}{"%d\}"}, ROOT -> \hyperlink{structOBST_ab6d8d6c428df9839238a1f666fde3a20}{right} -> \hyperlink{structOBST_a4c9146e94ac8e02c18ceccfb6c6ebddc}{KEY});
+147     \} \textcolor{keywordflow}{else} \{
+148       \textcolor{comment}{//fprintf(fp, "-1\}\(\backslash\)n");}
+149       sprintf(valeur + strlen(valeur), \textcolor{stringliteral}{"-1\}"});
+150     \}
+151     strcpy(sortie[ROOT -> \hyperlink{structOBST_a4c9146e94ac8e02c18ceccfb6c6ebddc}{KEY}], valeur);
+152     \textcolor{comment}{//fclose(fp);}
+153     \textcolor{comment}{//printf("tata");  }
+154     \hyperlink{compileBST_8c_a37660000f8b92d58135bd5a167cae022}{remplirSortie}(ROOT -> \hyperlink{structOBST_ab6d8d6c428df9839238a1f666fde3a20}{right}, nivel + 1, elt, sortie);
+155     \textcolor{comment}{//printf("%d\(\backslash\)n", ROOT->KEY);}
+156     \hyperlink{compileBST_8c_a37660000f8b92d58135bd5a167cae022}{remplirSortie}(ROOT -> \hyperlink{structOBST_a2ca8350fa33eecdc29b6f2cf1eb83686}{left}, nivel + 1, elt, sortie);
+157 
+158   \}
+159 \}
+\end{DoxyCode}
+
+
+\subsection{Variable Documentation}
+\hypertarget{compileBST_8c_a47afed83ea6c1239931ea8eaa0e8c929}{\index{compile\-B\-S\-T.\-c@{compile\-B\-S\-T.\-c}!C@{C}}
+\index{C@{C}!compileBST.c@{compile\-B\-S\-T.\-c}}
+\subsubsection[{C}]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$$\ast$ C}}\label{compileBST_8c_a47afed83ea6c1239931ea8eaa0e8c929}
+
+
+Definition at line 38 of file compile\-B\-S\-T.\-c.
+
+\hypertarget{compileBST_8c_aad6fd34d5b69f600454f875343ac3ca7}{\index{compile\-B\-S\-T.\-c@{compile\-B\-S\-T.\-c}!K\-E\-Y\-S@{K\-E\-Y\-S}}
+\index{K\-E\-Y\-S@{K\-E\-Y\-S}!compileBST.c@{compile\-B\-S\-T.\-c}}
+\subsubsection[{K\-E\-Y\-S}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ K\-E\-Y\-S}}\label{compileBST_8c_aad6fd34d5b69f600454f875343ac3ca7}
+
+
+number of keys in the tree 
+
+
+
+Definition at line 43 of file compile\-B\-S\-T.\-c.
+
+\hypertarget{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{\index{compile\-B\-S\-T.\-c@{compile\-B\-S\-T.\-c}!N\-U\-M\-B\-E\-R\-\_\-\-O\-F\-\_\-\-K\-E\-Y\-S@{N\-U\-M\-B\-E\-R\-\_\-\-O\-F\-\_\-\-K\-E\-Y\-S}}
+\index{N\-U\-M\-B\-E\-R\-\_\-\-O\-F\-\_\-\-K\-E\-Y\-S@{N\-U\-M\-B\-E\-R\-\_\-\-O\-F\-\_\-\-K\-E\-Y\-S}!compileBST.c@{compile\-B\-S\-T.\-c}}
+\subsubsection[{N\-U\-M\-B\-E\-R\-\_\-\-O\-F\-\_\-\-K\-E\-Y\-S}]{\setlength{\rightskip}{0pt plus 5cm}long N\-U\-M\-B\-E\-R\-\_\-\-O\-F\-\_\-\-K\-E\-Y\-S}}\label{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}
+
+
+frequencies 
+
+
+
+Definition at line 42 of file compile\-B\-S\-T.\-c.
+
+\hypertarget{compileBST_8c_a7fe964f6b1afd4591f637999272ab9a2}{\index{compile\-B\-S\-T.\-c@{compile\-B\-S\-T.\-c}!p@{p}}
+\index{p@{p}!compileBST.c@{compile\-B\-S\-T.\-c}}
+\subsubsection[{p}]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$ p}}\label{compileBST_8c_a7fe964f6b1afd4591f637999272ab9a2}
+
+
+root matrix 
+
+
+
+Definition at line 41 of file compile\-B\-S\-T.\-c.
+
+\hypertarget{compileBST_8c_af40c7c16aeceb500e7425dfc6c6147cf}{\index{compile\-B\-S\-T.\-c@{compile\-B\-S\-T.\-c}!R@{R}}
+\index{R@{R}!compileBST.c@{compile\-B\-S\-T.\-c}}
+\subsubsection[{R}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$$\ast$ R}}\label{compileBST_8c_af40c7c16aeceb500e7425dfc6c6147cf}
+
+
+weight matrix 
+
+
+
+Definition at line 40 of file compile\-B\-S\-T.\-c.
+
+\hypertarget{compileBST_8c_a424b47858f019cfe95909586e0af3365}{\index{compile\-B\-S\-T.\-c@{compile\-B\-S\-T.\-c}!R\-O\-O\-T@{R\-O\-O\-T}}
+\index{R\-O\-O\-T@{R\-O\-O\-T}!compileBST.c@{compile\-B\-S\-T.\-c}}
+\subsubsection[{R\-O\-O\-T}]{\setlength{\rightskip}{0pt plus 5cm}{\bf O\-B\-S\-T}$\ast$ R\-O\-O\-T}}\label{compileBST_8c_a424b47858f019cfe95909586e0af3365}
+
+
+Definition at line 44 of file compile\-B\-S\-T.\-c.
+
+\hypertarget{compileBST_8c_aa1df67933739b06ebe8f1041ed8b43a6}{\index{compile\-B\-S\-T.\-c@{compile\-B\-S\-T.\-c}!W@{W}}
+\index{W@{W}!compileBST.c@{compile\-B\-S\-T.\-c}}
+\subsubsection[{W}]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$ W}}\label{compileBST_8c_aa1df67933739b06ebe8f1041ed8b43a6}
+
+
+cost matrix 
+
+
+
+Definition at line 39 of file compile\-B\-S\-T.\-c.
+

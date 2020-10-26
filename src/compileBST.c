@@ -19,30 +19,45 @@
 #include<stdlib.h>
 #include <string.h>
 
-#define NMAX 6000
 #define LONGUEURBRACKET 50
 
+
+/**
+ * \struct OBST
+ * \brief Objet Arbre Binaire Optimal
+ *
+ * OBST est un objet qui reprensente un arbre binaire optimal, 
+ * ou bien un sous arbre binaire (qui est lui aussi optimal par construction)
+ */
 typedef struct OBST {
-  int KEY;
-  struct OBST * left, * right;
+  int KEY;  /*! valeur portée par la feuille racine de l'arbre binaire optimal */
+  struct OBST * left, * right;  /*! sous arbres gauche et droit */
 }
 OBST;
-float **C; //cost matrix   //faire malloc
-float *W; //weight matrix
-int **R; //root matrix
-float *p; //frequencies
-long NUMBER_OF_KEYS; //number of keys in the tree
+
+float **C; ///cost matrix
+float *W; ///weight matrix
+int **R; ///root matrix
+float *p; ///frequencies
+long NUMBER_OF_KEYS; ///number of keys in the tree
 int *KEYS;
 OBST * ROOT;
 
+/**
+ * \fn void calculerMatrices (void)
+ * \brief Fonction de calcule des matrices utiles : 
+ * cout, racine et poids
+ *
+ * \return void
+ */
 void calculerMatrices() {
   float x, min;
   int i, j, k, h, m;
-  //Construct weight matrix W
+  ///Construct weight matrix W
     W[0] = 0;
     for (i = 1; i <= NUMBER_OF_KEYS; i++)
       W[i] = W[i - 1] + p[i];
-  //Construct cost matrix C and root matrix R
+  ///Construct cost matrix C and root matrix R
   for (i = 0; i <= NUMBER_OF_KEYS; i++)
     C[i][i] = 0;
   for (i = 0; i <= NUMBER_OF_KEYS - 1; i++) {
@@ -67,6 +82,14 @@ void calculerMatrices() {
     }
 }
 
+/**
+ * \fn OBST* construireArbre (int i, int j)
+ * \brief Fonction de construction de l'arbre contenant 
+ * les feuilles d'indices i a j
+ * \param i borne inferieure
+ * \param j borne superieure
+ * \return Racine de l'arbre binaire optimal contenant les feuilles d'indice i a j
+ */
 OBST * construireArbre(int i, int j) {
   //printf("tota");
   OBST * p;
@@ -86,6 +109,15 @@ OBST * construireArbre(int i, int j) {
   return p;
 }
 
+/**
+ * \fn void remplirSortie (OBST * ROOT, int nivel, int elt, char ** sortie)
+ * \brief Fonction de qui rempli un tampon utiliser pour stocker la futur sortie ecran
+ * \param ROOT racine de l'arbre binaire optimal traité
+ * \param nivel niveau ("etage") actuel dans le traitement de l'arbre binaire 
+ * \param elt nombre d'element dans l'arbre complet
+ * \param sortie tampon de sortie
+ * \return void
+ */
 void remplirSortie(OBST * ROOT, int nivel, int elt, char ** sortie) {
   //int i;
   //FILE * fp;
@@ -126,6 +158,12 @@ void remplirSortie(OBST * ROOT, int nivel, int elt, char ** sortie) {
   }
 }
 
+/**
+ * \fn void afficherSortie (char** sortie)
+ * \brief Fonction de qui affiche le tampon a l'ecran
+ * \param sortie tampon contenant les sortie dans le bon ordre d'affichage
+ * \return void
+ */
 void afficherSortie(char ** sortie) {
   //FILE * fp;
   for (int i = 0; i < NUMBER_OF_KEYS - 1; i++) {
@@ -138,6 +176,12 @@ void afficherSortie(char ** sortie) {
   //fclose(fp);
 
 }
+
+/**
+ * \fn void calculEtConstructionArbre (void)
+ * \brief Fonction de qui calcul les matrices puis constructi l'arbre binaire optimal contenant tout les elements
+ * \return void
+ */
 void calculEtConstructionArbre() {
   calculerMatrices();
   ROOT = construireArbre(0, NUMBER_OF_KEYS);
