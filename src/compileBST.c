@@ -91,20 +91,15 @@ void calculerMatrices() {
  * \return Racine de l'arbre binaire optimal contenant les feuilles d'indice i a j
  */
 OBST * construireArbre(int i, int j) {
-  //printf("tota");
   OBST * p;
   if (i == j) {
     p = NULL;
   } else {
     p = malloc(sizeof(OBST));
     
-    //printf("toto");
     p -> KEY = KEYS[R[i][j]];
-    //printf("totI");
     p -> left = construireArbre(i, R[i][j] - 1); //sous arbre gauche
-    //printf("totW");
     p -> right = construireArbre(R[i][j], j); //sous arbre droit
-    //printf("%d", p->KEY);
   }
   return p;
 }
@@ -118,41 +113,29 @@ OBST * construireArbre(int i, int j) {
  * \param sortie tampon de sortie
  * \return void
  */
-void remplirSortie(OBST * ROOT, int nivel, int elt, char ** sortie) {
-  //int i;
-  //FILE * fp;
-  //printf("toto");
-  
+void remplirSortie(OBST * ROOT, int nivel, int elt, char ** sortie) {  
   if (nivel == 0) {
     //fp = fopen("test.txt", "w+");
     fprintf(stdout, "static int BSTroot = %d;\nstatic int BSTtree[%d][2] = {\n", ROOT -> KEY, elt);
     //fclose(fp);
   }
   
-  //printf("titi");
   if (ROOT != 0) {
     char * valeur = (char * ) malloc(LONGUEURBRACKET * sizeof(char));
     //valeur[0] = '\0';
     
     if (ROOT -> left != NULL) {
-      //fprintf(fp, "{%d, ", ROOT->left->KEY);
       sprintf(valeur + strlen(valeur), "{%d, ", ROOT -> left -> KEY);
     } else {
-      //fprintf(fp, "{-1, ");
       sprintf(valeur + strlen(valeur), "{-1, ");
     }
     if (ROOT -> right != NULL) {
-      //fprintf(fp, "%d}\n", ROOT->right->KEY);
       sprintf(valeur + strlen(valeur), "%d}", ROOT -> right -> KEY);
     } else {
-      //fprintf(fp, "-1}\n");
       sprintf(valeur + strlen(valeur), "-1}");
     }
     strcpy(sortie[ROOT -> KEY], valeur);
-    //fclose(fp);
-    //printf("tata");  
     remplirSortie(ROOT -> right, nivel + 1, elt, sortie);
-    //printf("%d\n", ROOT->KEY);
     remplirSortie(ROOT -> left, nivel + 1, elt, sortie);
 
   }
@@ -165,15 +148,10 @@ void remplirSortie(OBST * ROOT, int nivel, int elt, char ** sortie) {
  * \return void
  */
 void afficherSortie(char ** sortie) {
-  //FILE * fp;
   for (int i = 0; i < NUMBER_OF_KEYS - 1; i++) {
-    //fp = fopen("test.txt", "a");
     fprintf(stdout, "%s,\n", sortie[i]);
-    //fclose(fp);
   }
-  //p = fopen("test.txt", "a");
   fprintf(stdout, "%s };\n", sortie[NUMBER_OF_KEYS - 1]);
-  //fclose(fp);
 
 }
 
@@ -199,7 +177,7 @@ int main (int argc, char *argv[]) {
   long n = 0 ; // Number of elements in the dictionary
   FILE *fs = NULL ; // File that contains n positive integers defining the relative frequence of dictinary elements 
   
-  int i;//, k;
+  int i;
 
 
   if(argc != 3){
@@ -258,22 +236,22 @@ int main (int argc, char *argv[]) {
   // TO BE COMPLETED 
    NUMBER_OF_KEYS = n;
 
-   C = (float**)malloc((NUMBER_OF_KEYS+1)* sizeof(float*)); //cost matrix   //faire malloc
+   C = (float**)malloc((NUMBER_OF_KEYS+1)* sizeof(float*));
    for (int i = 0; i < (NUMBER_OF_KEYS+1); i++)
    {
      C[i] = (float*)malloc((NUMBER_OF_KEYS+1)* sizeof(float));
    }
    
-  W = (float*)malloc((NUMBER_OF_KEYS+1)* sizeof(float)); //weight matrix
+  W = (float*)malloc((NUMBER_OF_KEYS+1)* sizeof(float));
 
 
-  R = (int**)malloc((NUMBER_OF_KEYS+1)* sizeof(int*)); //root matrix
+  R = (int**)malloc((NUMBER_OF_KEYS+1)* sizeof(int*));
    for (int i = 0; i < (NUMBER_OF_KEYS+1); i++)
    {
      R[i] = (int*)malloc((NUMBER_OF_KEYS+1)* sizeof(int));
    }
 
-  p = (float*)malloc((NUMBER_OF_KEYS+1)* sizeof(float)); //frequencies
+  p = (float*)malloc((NUMBER_OF_KEYS+1)* sizeof(float));
 
   KEYS = (int*)malloc((NUMBER_OF_KEYS+1)* sizeof(int));
 
@@ -285,24 +263,19 @@ int main (int argc, char *argv[]) {
  
   while (1) {
     ch = fgetc(fs);
-    //printf("titi");
 
 
     if (ch == EOF) {
-      //printf("totO");
       KEYS[y] = atoi(buffer);
-      //printf("%d", KEYS[y]);
       break;
     }
 
     else if (ch == ' ') {
-      //printf("tATA");
 
       if (espace == 0) {
-        espace = 1; //empecher les espaces multiples cause de bug
+        espace = 1; ///empecher les espaces multiples cause de bug
 
         KEYS[y] = atoi(buffer);
-        //printf("%d", KEYS[y]);
         y++;
         memset(buffer, 0, 32);
         x = 0;

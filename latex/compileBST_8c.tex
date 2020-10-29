@@ -124,22 +124,17 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 167 of file compile\-B\-S\-T.\-c.
+Definition at line 150 of file compile\-B\-S\-T.\-c.
 
 
 \begin{DoxyCode}
-167                                     \{
-168   \textcolor{comment}{//FILE * fp;}
-169   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS} - 1; i++) \{
-170     \textcolor{comment}{//fp = fopen("test.txt", "a");}
-171     fprintf(stdout, \textcolor{stringliteral}{"%s,\(\backslash\)n"}, sortie[i]);
-172     \textcolor{comment}{//fclose(fp);}
-173   \}
-174   \textcolor{comment}{//p = fopen("test.txt", "a");}
-175   fprintf(stdout, \textcolor{stringliteral}{"%s \};\(\backslash\)n"}, sortie[NUMBER\_OF\_KEYS - 1]);
-176   \textcolor{comment}{//fclose(fp);}
-177 
-178 \}
+150                                     \{
+151   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS} - 1; i++) \{
+152     fprintf(stdout, \textcolor{stringliteral}{"%s,\(\backslash\)n"}, sortie[i]);
+153   \}
+154   fprintf(stdout, \textcolor{stringliteral}{"%s \};\(\backslash\)n"}, sortie[NUMBER\_OF\_KEYS - 1]);
+155 
+156 \}
 \end{DoxyCode}
 \hypertarget{compileBST_8c_ae2bde9744936b36700d427207e04cf32}{\index{compile\-B\-S\-T.\-c@{compile\-B\-S\-T.\-c}!calculer\-Matrices@{calculer\-Matrices}}
 \index{calculer\-Matrices@{calculer\-Matrices}!compileBST.c@{compile\-B\-S\-T.\-c}}
@@ -209,14 +204,14 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 185 of file compile\-B\-S\-T.\-c.
+Definition at line 163 of file compile\-B\-S\-T.\-c.
 
 
 \begin{DoxyCode}
-185                                  \{
-186   \hyperlink{compileBST_8c_ae2bde9744936b36700d427207e04cf32}{calculerMatrices}();
-187   \hyperlink{compileBST_8c_a424b47858f019cfe95909586e0af3365}{ROOT} = \hyperlink{compileBST_8c_a6c658ba922305a99482c903995a4a45d}{construireArbre}(0, \hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS});
-188 \}
+163                                  \{
+164   \hyperlink{compileBST_8c_ae2bde9744936b36700d427207e04cf32}{calculerMatrices}();
+165   \hyperlink{compileBST_8c_a424b47858f019cfe95909586e0af3365}{ROOT} = \hyperlink{compileBST_8c_a6c658ba922305a99482c903995a4a45d}{construireArbre}(0, \hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS});
+166 \}
 \end{DoxyCode}
 \hypertarget{compileBST_8c_a6c658ba922305a99482c903995a4a45d}{\index{compile\-B\-S\-T.\-c@{compile\-B\-S\-T.\-c}!construire\-Arbre@{construire\-Arbre}}
 \index{construire\-Arbre@{construire\-Arbre}!compileBST.c@{compile\-B\-S\-T.\-c}}
@@ -247,23 +242,18 @@ Definition at line 93 of file compile\-B\-S\-T.\-c.
 
 \begin{DoxyCode}
 93                                      \{
-94   \textcolor{comment}{//printf("tota");}
-95   \hyperlink{structOBST}{OBST} * \hyperlink{compileBST_8c_a7fe964f6b1afd4591f637999272ab9a2}{p};
-96   \textcolor{keywordflow}{if} (i == j) \{
-97     p = NULL;
-98   \} \textcolor{keywordflow}{else} \{
-99     p = malloc(\textcolor{keyword}{sizeof}(\hyperlink{structOBST}{OBST}));
-100     
-101     \textcolor{comment}{//printf("toto");}
-102     p -> \hyperlink{structOBST_a4c9146e94ac8e02c18ceccfb6c6ebddc}{KEY} = \hyperlink{compileBST_8c_aad6fd34d5b69f600454f875343ac3ca7}{KEYS}[\hyperlink{compileBST_8c_af40c7c16aeceb500e7425dfc6c6147cf}{R}[i][j]];
-103     \textcolor{comment}{//printf("totI");}
-104     p -> \hyperlink{structOBST_a2ca8350fa33eecdc29b6f2cf1eb83686}{left} = \hyperlink{compileBST_8c_a6c658ba922305a99482c903995a4a45d}{construireArbre}(i, R[i][j] - 1); \textcolor{comment}{//sous arbre gauche}
-105     \textcolor{comment}{//printf("totW");}
-106     p -> \hyperlink{structOBST_ab6d8d6c428df9839238a1f666fde3a20}{right} = \hyperlink{compileBST_8c_a6c658ba922305a99482c903995a4a45d}{construireArbre}(R[i][j], j); \textcolor{comment}{//sous arbre droit}
-107     \textcolor{comment}{//printf("%d", p->KEY);}
-108   \}
-109   \textcolor{keywordflow}{return} \hyperlink{compileBST_8c_a7fe964f6b1afd4591f637999272ab9a2}{p};
-110 \}
+94   \hyperlink{structOBST}{OBST} * \hyperlink{compileBST_8c_a7fe964f6b1afd4591f637999272ab9a2}{p};
+95   \textcolor{keywordflow}{if} (i == j) \{
+96     p = NULL;
+97   \} \textcolor{keywordflow}{else} \{
+98     p = malloc(\textcolor{keyword}{sizeof}(\hyperlink{structOBST}{OBST}));
+99     
+100     p -> \hyperlink{structOBST_a4c9146e94ac8e02c18ceccfb6c6ebddc}{KEY} = \hyperlink{compileBST_8c_aad6fd34d5b69f600454f875343ac3ca7}{KEYS}[\hyperlink{compileBST_8c_af40c7c16aeceb500e7425dfc6c6147cf}{R}[i][j]];
+101     p -> \hyperlink{structOBST_a2ca8350fa33eecdc29b6f2cf1eb83686}{left} = \hyperlink{compileBST_8c_a6c658ba922305a99482c903995a4a45d}{construireArbre}(i, R[i][j] - 1); \textcolor{comment}{//sous arbre gauche}
+102     p -> \hyperlink{structOBST_ab6d8d6c428df9839238a1f666fde3a20}{right} = \hyperlink{compileBST_8c_a6c658ba922305a99482c903995a4a45d}{construireArbre}(R[i][j], j); \textcolor{comment}{//sous arbre droit}
+103   \}
+104   \textcolor{keywordflow}{return} \hyperlink{compileBST_8c_a7fe964f6b1afd4591f637999272ab9a2}{p};
+105 \}
 \end{DoxyCode}
 \hypertarget{compileBST_8c_a0ddf1224851353fc92bfbff6f499fa97}{\index{compile\-B\-S\-T.\-c@{compile\-B\-S\-T.\-c}!main@{main}}
 \index{main@{main}!compileBST.c@{compile\-B\-S\-T.\-c}}
@@ -290,162 +280,157 @@ Must be called with a positive long integer, n, and a filename, freq\-File, as c
 \begin{DoxyReturn}{Returns}
 \{ 0 if succeeds and prints C code implementing an optimal A\-B\-R on stdout; exit code otherwise\} 
 \end{DoxyReturn}
+empecher les espaces multiples cause de bug 
 
-
-Definition at line 198 of file compile\-B\-S\-T.\-c.
+Definition at line 176 of file compile\-B\-S\-T.\-c.
 
 
 \begin{DoxyCode}
-198                                   \{
-199   \textcolor{keywordtype}{long} n = 0 ; \textcolor{comment}{// Number of elements in the dictionary}
-200   FILE *fs = NULL ; \textcolor{comment}{// File that contains n positive integers defining the relative frequence of dictinary
+176                                   \{
+177   \textcolor{keywordtype}{long} n = 0 ; \textcolor{comment}{// Number of elements in the dictionary}
+178   FILE *fs = NULL ; \textcolor{comment}{// File that contains n positive integers defining the relative frequence of dictinary
        elements }
-201   
-202   \textcolor{keywordtype}{int} i;\textcolor{comment}{//, k;}
-203 
-204 
-205   \textcolor{keywordflow}{if}(argc != 3)\{
-206     fprintf(stderr, \textcolor{stringliteral}{"!!!!! Usage: ./compileBST n  originalFile !!!!!\(\backslash\)n"});
-207       exit(EXIT\_FAILURE); \textcolor{comment}{/* indicate failure.*/}
-208   \}
-209 
-210   \{ \textcolor{comment}{// Conversion of parameter n in a long }
-211     \textcolor{keywordtype}{int} codeRetour = EXIT\_SUCCESS;
-212     \textcolor{keywordtype}{char} *posError;
-213     \textcolor{keywordtype}{long} resuLong;
-214     n = atol(argv[1] ) ;
-215    
-216     assert(argc >= 2);
-217     \textcolor{comment}{// Conversion of argv[1] en long}
-218     resuLong = strtol(argv[1], &posError, 10);
-219     \textcolor{comment}{// Traitement des erreurs}
-220     \textcolor{keywordflow}{switch} (errno)
-221     \{
-222       \textcolor{keywordflow}{case} EXIT\_SUCCESS :
-223          \textcolor{comment}{// Conversion du long en int}
-224          \textcolor{keywordflow}{if} (resuLong > 0)
-225          \{
-226             n = (long)resuLong;
-227             fprintf(stderr, \textcolor{stringliteral}{"Number of elements in the dictionary: %ld\(\backslash\)n"}, n);         
-228          \}
-229          \textcolor{keywordflow}{else}
-230          \{
-231             (void)fprintf(stderr, \textcolor{stringliteral}{"%s cannot be converted into a positive integer matching the number of
+179   
+180   \textcolor{keywordtype}{int} i;
+181 
+182 
+183   \textcolor{keywordflow}{if}(argc != 3)\{
+184     fprintf(stderr, \textcolor{stringliteral}{"!!!!! Usage: ./compileBST n  originalFile !!!!!\(\backslash\)n"});
+185       exit(EXIT\_FAILURE); \textcolor{comment}{/* indicate failure.*/}
+186   \}
+187 
+188   \{ \textcolor{comment}{// Conversion of parameter n in a long }
+189     \textcolor{keywordtype}{int} codeRetour = EXIT\_SUCCESS;
+190     \textcolor{keywordtype}{char} *posError;
+191     \textcolor{keywordtype}{long} resuLong;
+192     n = atol(argv[1] ) ;
+193    
+194     assert(argc >= 2);
+195     \textcolor{comment}{// Conversion of argv[1] en long}
+196     resuLong = strtol(argv[1], &posError, 10);
+197     \textcolor{comment}{// Traitement des erreurs}
+198     \textcolor{keywordflow}{switch} (errno)
+199     \{
+200       \textcolor{keywordflow}{case} EXIT\_SUCCESS :
+201          \textcolor{comment}{// Conversion du long en int}
+202          \textcolor{keywordflow}{if} (resuLong > 0)
+203          \{
+204             n = (long)resuLong;
+205             fprintf(stderr, \textcolor{stringliteral}{"Number of elements in the dictionary: %ld\(\backslash\)n"}, n);         
+206          \}
+207          \textcolor{keywordflow}{else}
+208          \{
+209             (void)fprintf(stderr, \textcolor{stringliteral}{"%s cannot be converted into a positive integer matching the number of
        elements in the dicionary.\(\backslash\)n"}, argv[1]) ; 
-232             codeRetour = EXIT\_FAILURE;
-233          \}
-234       \textcolor{keywordflow}{break};
-235       
-236       \textcolor{keywordflow}{case} EINVAL :
-237          perror(\_\_func\_\_);
-238          (void)fprintf(stderr, \textcolor{stringliteral}{"%s does not match a long integer value. \(\backslash\)n"}, argv[1]);
-239          codeRetour = EXIT\_FAILURE;
-240       \textcolor{keywordflow}{break};
-241       
-242       \textcolor{keywordflow}{case} ERANGE :
-243          perror(\_\_func\_\_);
-244          (void)fprintf(stderr, \textcolor{stringliteral}{"%s does not fit in a long int :\(\backslash\)n"} \textcolor{stringliteral}{"out of bound [%ld;%ld]\(\backslash\)n"},
-245                        argv[1], LONG\_MIN, LONG\_MAX);
-246          codeRetour = EXIT\_FAILURE;
-247       \textcolor{keywordflow}{break};
-248       \textcolor{keywordflow}{default} :
-249          perror(\_\_func\_\_);
-250          codeRetour = EXIT\_FAILURE;
-251     \} \textcolor{comment}{// switch (errno)}
-252     \textcolor{keywordflow}{if}  (codeRetour != EXIT\_SUCCESS) \textcolor{keywordflow}{return} codeRetour ;
-253   \}
-254 
-255   fs = fopen(argv[2] , \textcolor{stringliteral}{"r"} );
-256   \textcolor{keywordflow}{if} (fs==NULL) \{fprintf (stderr, \textcolor{stringliteral}{"!!!!! Error opening originalFile !!!!!\(\backslash\)n"}); exit(EXIT\_FAILURE);\}
+210             codeRetour = EXIT\_FAILURE;
+211          \}
+212       \textcolor{keywordflow}{break};
+213       
+214       \textcolor{keywordflow}{case} EINVAL :
+215          perror(\_\_func\_\_);
+216          (void)fprintf(stderr, \textcolor{stringliteral}{"%s does not match a long integer value. \(\backslash\)n"}, argv[1]);
+217          codeRetour = EXIT\_FAILURE;
+218       \textcolor{keywordflow}{break};
+219       
+220       \textcolor{keywordflow}{case} ERANGE :
+221          perror(\_\_func\_\_);
+222          (void)fprintf(stderr, \textcolor{stringliteral}{"%s does not fit in a long int :\(\backslash\)n"} \textcolor{stringliteral}{"out of bound [%ld;%ld]\(\backslash\)n"},
+223                        argv[1], LONG\_MIN, LONG\_MAX);
+224          codeRetour = EXIT\_FAILURE;
+225       \textcolor{keywordflow}{break};
+226       \textcolor{keywordflow}{default} :
+227          perror(\_\_func\_\_);
+228          codeRetour = EXIT\_FAILURE;
+229     \} \textcolor{comment}{// switch (errno)}
+230     \textcolor{keywordflow}{if}  (codeRetour != EXIT\_SUCCESS) \textcolor{keywordflow}{return} codeRetour ;
+231   \}
+232 
+233   fs = fopen(argv[2] , \textcolor{stringliteral}{"r"} );
+234   \textcolor{keywordflow}{if} (fs==NULL) \{fprintf (stderr, \textcolor{stringliteral}{"!!!!! Error opening originalFile !!!!!\(\backslash\)n"}); exit(EXIT\_FAILURE);\}
+235 
+236   \textcolor{comment}{// TO BE COMPLETED }
+237    \hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS} = n;
+238 
+239    \hyperlink{compileBST_8c_a47afed83ea6c1239931ea8eaa0e8c929}{C} = (\textcolor{keywordtype}{float}**)malloc((\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1)* \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}*));
+240    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < (\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1); i++)
+241    \{
+242      \hyperlink{compileBST_8c_a47afed83ea6c1239931ea8eaa0e8c929}{C}[i] = (\textcolor{keywordtype}{float}*)malloc((\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1)* \textcolor{keyword}{sizeof}(float));
+243    \}
+244    
+245   \hyperlink{compileBST_8c_aa1df67933739b06ebe8f1041ed8b43a6}{W} = (\textcolor{keywordtype}{float}*)malloc((\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1)* \textcolor{keyword}{sizeof}(float));
+246 
+247 
+248   \hyperlink{compileBST_8c_af40c7c16aeceb500e7425dfc6c6147cf}{R} = (\textcolor{keywordtype}{int}**)malloc((\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1)* \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}*));
+249    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < (\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1); i++)
+250    \{
+251      \hyperlink{compileBST_8c_af40c7c16aeceb500e7425dfc6c6147cf}{R}[i] = (\textcolor{keywordtype}{int}*)malloc((\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1)* \textcolor{keyword}{sizeof}(int));
+252    \}
+253 
+254   \hyperlink{compileBST_8c_a7fe964f6b1afd4591f637999272ab9a2}{p} = (\textcolor{keywordtype}{float}*)malloc((\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1)* \textcolor{keyword}{sizeof}(float));
+255 
+256   \hyperlink{compileBST_8c_aad6fd34d5b69f600454f875343ac3ca7}{KEYS} = (\textcolor{keywordtype}{int}*)malloc((\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1)* \textcolor{keyword}{sizeof}(int));
 257 
-258   \textcolor{comment}{// TO BE COMPLETED }
-259    \hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS} = n;
-260 
-261    \hyperlink{compileBST_8c_a47afed83ea6c1239931ea8eaa0e8c929}{C} = (\textcolor{keywordtype}{float}**)malloc((\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1)* \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}*)); \textcolor{comment}{//cost matrix   //faire malloc}
-262    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < (\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1); i++)
-263    \{
-264      \hyperlink{compileBST_8c_a47afed83ea6c1239931ea8eaa0e8c929}{C}[i] = (\textcolor{keywordtype}{float}*)malloc((\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1)* \textcolor{keyword}{sizeof}(float));
-265    \}
-266    
-267   \hyperlink{compileBST_8c_aa1df67933739b06ebe8f1041ed8b43a6}{W} = (\textcolor{keywordtype}{float}*)malloc((\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1)* \textcolor{keyword}{sizeof}(float)); \textcolor{comment}{//weight matrix}
-268 
-269 
-270   \hyperlink{compileBST_8c_af40c7c16aeceb500e7425dfc6c6147cf}{R} = (\textcolor{keywordtype}{int}**)malloc((\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1)* \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}*)); \textcolor{comment}{//root matrix}
-271    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < (\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1); i++)
-272    \{
-273      \hyperlink{compileBST_8c_af40c7c16aeceb500e7425dfc6c6147cf}{R}[i] = (\textcolor{keywordtype}{int}*)malloc((\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1)* \textcolor{keyword}{sizeof}(int));
-274    \}
-275 
-276   \hyperlink{compileBST_8c_a7fe964f6b1afd4591f637999272ab9a2}{p} = (\textcolor{keywordtype}{float}*)malloc((\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1)* \textcolor{keyword}{sizeof}(float)); \textcolor{comment}{//frequencies}
+258   \textcolor{keywordtype}{int} espace = 1;
+259   \textcolor{keywordtype}{char} ch, buffer[32];
+260   \textcolor{keywordtype}{int} x = 0, y = 1;
+261 
+262 
+263  
+264   \textcolor{keywordflow}{while} (1) \{
+265     ch = fgetc(fs);
+266 
+267 
+268     \textcolor{keywordflow}{if} (ch == EOF) \{
+269       \hyperlink{compileBST_8c_aad6fd34d5b69f600454f875343ac3ca7}{KEYS}[y] = atoi(buffer);
+270       \textcolor{keywordflow}{break};
+271     \}
+272 
+273     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (ch == \textcolor{charliteral}{' '}) \{
+274 
+275       \textcolor{keywordflow}{if} (espace == 0) \{
+276         espace = 1; 
 277 
-278   \hyperlink{compileBST_8c_aad6fd34d5b69f600454f875343ac3ca7}{KEYS} = (\textcolor{keywordtype}{int}*)malloc((\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}+1)* \textcolor{keyword}{sizeof}(int));
-279 
-280   \textcolor{keywordtype}{int} espace = 1;
-281   \textcolor{keywordtype}{char} ch, buffer[32];
-282   \textcolor{keywordtype}{int} x = 0, y = 1;
-283 
+278         \hyperlink{compileBST_8c_aad6fd34d5b69f600454f875343ac3ca7}{KEYS}[y] = atoi(buffer);
+279         y++;
+280         memset(buffer, 0, 32);
+281         x = 0;
+282         \textcolor{keywordflow}{continue};
+283       \}
 284 
-285  
-286   \textcolor{keywordflow}{while} (1) \{
-287     ch = fgetc(fs);
-288     \textcolor{comment}{//printf("titi");}
-289 
-290 
-291     \textcolor{keywordflow}{if} (ch == EOF) \{
-292       \textcolor{comment}{//printf("totO");}
-293       \hyperlink{compileBST_8c_aad6fd34d5b69f600454f875343ac3ca7}{KEYS}[y] = atoi(buffer);
-294       \textcolor{comment}{//printf("%d", KEYS[y]);}
-295       \textcolor{keywordflow}{break};
-296     \}
-297 
-298     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (ch == \textcolor{charliteral}{' '}) \{
-299       \textcolor{comment}{//printf("tATA");}
-300 
-301       \textcolor{keywordflow}{if} (espace == 0) \{
-302         espace = 1; \textcolor{comment}{//empecher les espaces multiples cause de bug}
-303 
-304         \hyperlink{compileBST_8c_aad6fd34d5b69f600454f875343ac3ca7}{KEYS}[y] = atoi(buffer);
-305         \textcolor{comment}{//printf("%d", KEYS[y]);}
-306         y++;
-307         memset(buffer, 0, 32);
-308         x = 0;
-309         \textcolor{keywordflow}{continue};
-310       \}
-311 
-312     \} \textcolor{keywordflow}{else} \{
-313       espace = 0;
-314       buffer[x] = ch;
-315       x++;
-316     \}
-317   \}
-318 
-319   \textcolor{keywordtype}{char} ** sortie = malloc(\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS} * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char} * ));
-320   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}; i++) \{
-321     sortie[i] = malloc(\hyperlink{compileBST_8c_a005ec01e7223dd664cc5f254ac3fc6b8}{LONGUEURBRACKET} * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));
-322     \}
-323 
-324   \textcolor{keywordtype}{int} somme = 0;
-325   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i <= \hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}; i++) \{
-326     somme += \hyperlink{compileBST_8c_aad6fd34d5b69f600454f875343ac3ca7}{KEYS}[i];
-327   \}
-328 
-329   \textcolor{keywordflow}{for}(i = 1; i <= \hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}; i++)
-330    \{
-331     \hyperlink{compileBST_8c_a7fe964f6b1afd4591f637999272ab9a2}{p}[i] = (float)\hyperlink{compileBST_8c_aad6fd34d5b69f600454f875343ac3ca7}{KEYS}[i]/somme;
-332     \hyperlink{compileBST_8c_aad6fd34d5b69f600454f875343ac3ca7}{KEYS}[i] = i-1;
-333    \}
-334 
-335 
-336   \hyperlink{compileBST_8c_ab06a8a248fb8de0b78026f4163e569ae}{calculEtConstructionArbre}();
-337   \hyperlink{compileBST_8c_a37660000f8b92d58135bd5a167cae022}{remplirSortie}(\hyperlink{compileBST_8c_a424b47858f019cfe95909586e0af3365}{ROOT}, 0, NUMBER\_OF\_KEYS, sortie);
-338   \hyperlink{compileBST_8c_adf44e389b923f52e7e8369b20bd295ed}{afficherSortie}(sortie);
-339 
-340 
-341   fclose(fs);
-342 
-343 
-344   \textcolor{keywordflow}{return} 0;
-345 \}
+285     \} \textcolor{keywordflow}{else} \{
+286       espace = 0;
+287       buffer[x] = ch;
+288       x++;
+289     \}
+290   \}
+291 
+292   \textcolor{keywordtype}{char} ** sortie = malloc(\hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS} * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char} * ));
+293   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}; i++) \{
+294     sortie[i] = malloc(\hyperlink{compileBST_8c_a005ec01e7223dd664cc5f254ac3fc6b8}{LONGUEURBRACKET} * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));
+295     \}
+296 
+297   \textcolor{keywordtype}{int} somme = 0;
+298   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i <= \hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}; i++) \{
+299     somme += \hyperlink{compileBST_8c_aad6fd34d5b69f600454f875343ac3ca7}{KEYS}[i];
+300   \}
+301 
+302   \textcolor{keywordflow}{for}(i = 1; i <= \hyperlink{compileBST_8c_a93990c44f44f6480bf73a212f17cd1b5}{NUMBER\_OF\_KEYS}; i++)
+303    \{
+304     \hyperlink{compileBST_8c_a7fe964f6b1afd4591f637999272ab9a2}{p}[i] = (float)\hyperlink{compileBST_8c_aad6fd34d5b69f600454f875343ac3ca7}{KEYS}[i]/somme;
+305     \hyperlink{compileBST_8c_aad6fd34d5b69f600454f875343ac3ca7}{KEYS}[i] = i-1;
+306    \}
+307 
+308 
+309   \hyperlink{compileBST_8c_ab06a8a248fb8de0b78026f4163e569ae}{calculEtConstructionArbre}();
+310   \hyperlink{compileBST_8c_a37660000f8b92d58135bd5a167cae022}{remplirSortie}(\hyperlink{compileBST_8c_a424b47858f019cfe95909586e0af3365}{ROOT}, 0, NUMBER\_OF\_KEYS, sortie);
+311   \hyperlink{compileBST_8c_adf44e389b923f52e7e8369b20bd295ed}{afficherSortie}(sortie);
+312 
+313 
+314   fclose(fs);
+315 
+316 
+317   \textcolor{keywordflow}{return} 0;
+318 \}
 \end{DoxyCode}
 \hypertarget{compileBST_8c_a37660000f8b92d58135bd5a167cae022}{\index{compile\-B\-S\-T.\-c@{compile\-B\-S\-T.\-c}!remplir\-Sortie@{remplir\-Sortie}}
 \index{remplir\-Sortie@{remplir\-Sortie}!compileBST.c@{compile\-B\-S\-T.\-c}}
@@ -477,50 +462,38 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 121 of file compile\-B\-S\-T.\-c.
+Definition at line 116 of file compile\-B\-S\-T.\-c.
 
 
 \begin{DoxyCode}
-121                                                                     \{
-122   \textcolor{comment}{//int i;}
-123   \textcolor{comment}{//FILE * fp;}
-124   \textcolor{comment}{//printf("toto");}
-125   
-126   \textcolor{keywordflow}{if} (nivel == 0) \{
-127     \textcolor{comment}{//fp = fopen("test.txt", "w+");}
-128     fprintf(stdout, \textcolor{stringliteral}{"static int BSTroot = %d;\(\backslash\)nstatic int BSTtree[%d][2] = \{\(\backslash\)n"}, ROOT -> 
+116                                                                     \{  
+117   \textcolor{keywordflow}{if} (nivel == 0) \{
+118     \textcolor{comment}{//fp = fopen("test.txt", "w+");}
+119     fprintf(stdout, \textcolor{stringliteral}{"static int BSTroot = %d;\(\backslash\)nstatic int BSTtree[%d][2] = \{\(\backslash\)n"}, ROOT -> 
       \hyperlink{structOBST_a4c9146e94ac8e02c18ceccfb6c6ebddc}{KEY}, elt);
-129     \textcolor{comment}{//fclose(fp);}
-130   \}
-131   
-132   \textcolor{comment}{//printf("titi");}
-133   \textcolor{keywordflow}{if} (ROOT != 0) \{
-134     \textcolor{keywordtype}{char} * valeur = (\textcolor{keywordtype}{char} * ) malloc(\hyperlink{compileBST_8c_a005ec01e7223dd664cc5f254ac3fc6b8}{LONGUEURBRACKET} * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));
-135     \textcolor{comment}{//valeur[0] = '\(\backslash\)0';}
-136     
-137     \textcolor{keywordflow}{if} (ROOT -> \hyperlink{structOBST_a2ca8350fa33eecdc29b6f2cf1eb83686}{left} != NULL) \{
-138       \textcolor{comment}{//fprintf(fp, "\{%d, ", ROOT->left->KEY);}
-139       sprintf(valeur + strlen(valeur), \textcolor{stringliteral}{"\{%d, "}, ROOT -> \hyperlink{structOBST_a2ca8350fa33eecdc29b6f2cf1eb83686}{left} -> \hyperlink{structOBST_a4c9146e94ac8e02c18ceccfb6c6ebddc}{KEY});
-140     \} \textcolor{keywordflow}{else} \{
-141       \textcolor{comment}{//fprintf(fp, "\{-1, ");}
-142       sprintf(valeur + strlen(valeur), \textcolor{stringliteral}{"\{-1, "});
-143     \}
-144     \textcolor{keywordflow}{if} (ROOT -> \hyperlink{structOBST_ab6d8d6c428df9839238a1f666fde3a20}{right} != NULL) \{
-145       \textcolor{comment}{//fprintf(fp, "%d\}\(\backslash\)n", ROOT->right->KEY);}
-146       sprintf(valeur + strlen(valeur), \textcolor{stringliteral}{"%d\}"}, ROOT -> \hyperlink{structOBST_ab6d8d6c428df9839238a1f666fde3a20}{right} -> \hyperlink{structOBST_a4c9146e94ac8e02c18ceccfb6c6ebddc}{KEY});
-147     \} \textcolor{keywordflow}{else} \{
-148       \textcolor{comment}{//fprintf(fp, "-1\}\(\backslash\)n");}
-149       sprintf(valeur + strlen(valeur), \textcolor{stringliteral}{"-1\}"});
-150     \}
-151     strcpy(sortie[ROOT -> \hyperlink{structOBST_a4c9146e94ac8e02c18ceccfb6c6ebddc}{KEY}], valeur);
-152     \textcolor{comment}{//fclose(fp);}
-153     \textcolor{comment}{//printf("tata");  }
-154     \hyperlink{compileBST_8c_a37660000f8b92d58135bd5a167cae022}{remplirSortie}(ROOT -> \hyperlink{structOBST_ab6d8d6c428df9839238a1f666fde3a20}{right}, nivel + 1, elt, sortie);
-155     \textcolor{comment}{//printf("%d\(\backslash\)n", ROOT->KEY);}
-156     \hyperlink{compileBST_8c_a37660000f8b92d58135bd5a167cae022}{remplirSortie}(ROOT -> \hyperlink{structOBST_a2ca8350fa33eecdc29b6f2cf1eb83686}{left}, nivel + 1, elt, sortie);
-157 
-158   \}
-159 \}
+120     \textcolor{comment}{//fclose(fp);}
+121   \}
+122   
+123   \textcolor{keywordflow}{if} (ROOT != 0) \{
+124     \textcolor{keywordtype}{char} * valeur = (\textcolor{keywordtype}{char} * ) malloc(\hyperlink{compileBST_8c_a005ec01e7223dd664cc5f254ac3fc6b8}{LONGUEURBRACKET} * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));
+125     \textcolor{comment}{//valeur[0] = '\(\backslash\)0';}
+126     
+127     \textcolor{keywordflow}{if} (ROOT -> \hyperlink{structOBST_a2ca8350fa33eecdc29b6f2cf1eb83686}{left} != NULL) \{
+128       sprintf(valeur + strlen(valeur), \textcolor{stringliteral}{"\{%d, "}, ROOT -> \hyperlink{structOBST_a2ca8350fa33eecdc29b6f2cf1eb83686}{left} -> \hyperlink{structOBST_a4c9146e94ac8e02c18ceccfb6c6ebddc}{KEY});
+129     \} \textcolor{keywordflow}{else} \{
+130       sprintf(valeur + strlen(valeur), \textcolor{stringliteral}{"\{-1, "});
+131     \}
+132     \textcolor{keywordflow}{if} (ROOT -> \hyperlink{structOBST_ab6d8d6c428df9839238a1f666fde3a20}{right} != NULL) \{
+133       sprintf(valeur + strlen(valeur), \textcolor{stringliteral}{"%d\}"}, ROOT -> \hyperlink{structOBST_ab6d8d6c428df9839238a1f666fde3a20}{right} -> \hyperlink{structOBST_a4c9146e94ac8e02c18ceccfb6c6ebddc}{KEY});
+134     \} \textcolor{keywordflow}{else} \{
+135       sprintf(valeur + strlen(valeur), \textcolor{stringliteral}{"-1\}"});
+136     \}
+137     strcpy(sortie[ROOT -> \hyperlink{structOBST_a4c9146e94ac8e02c18ceccfb6c6ebddc}{KEY}], valeur);
+138     \hyperlink{compileBST_8c_a37660000f8b92d58135bd5a167cae022}{remplirSortie}(ROOT -> \hyperlink{structOBST_ab6d8d6c428df9839238a1f666fde3a20}{right}, nivel + 1, elt, sortie);
+139     \hyperlink{compileBST_8c_a37660000f8b92d58135bd5a167cae022}{remplirSortie}(ROOT -> \hyperlink{structOBST_a2ca8350fa33eecdc29b6f2cf1eb83686}{left}, nivel + 1, elt, sortie);
+140 
+141   \}
+142 \}
 \end{DoxyCode}
 
 
